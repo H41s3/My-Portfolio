@@ -1,15 +1,14 @@
-
 import { useState, useEffect } from "react";
 import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce platform with shopping cart, payment integration, and user authentication.",
+    title: "Pet Adoption Platform",
+    description: "",
     image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?q=80&w=1064&auto=format&fit=crop",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    demoLink: "#",
+    tags: ["React", "TypeScript", "Tailwind CSS"],
+    demoLink: "pets4doption.netlify.app",
     githubLink: "#",
     featured: true
   },
