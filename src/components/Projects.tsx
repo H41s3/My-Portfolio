@@ -84,11 +84,11 @@ const Projects = () => {
               style={{ animationDelay: `${0.1 * (index + 1)}s` }}
               onClick={() => setSelectedProject(project)}
             >
-              <div className="relative aspect-video overflow-hidden">
+              <div className="relative aspect-video overflow-hidden bg-white">
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-full h-full object-contain p-4"
                 />
                 {project.featured && (
                   <span className="absolute top-3 right-3 px-2 py-1 bg-primary text-primary-foreground rounded-full text-xs font-medium">
