@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { FileText, Download, Briefcase, GraduationCap } from "lucide-react";
 
@@ -71,13 +70,12 @@ const Resume = () => {
           <p className="text-muted-foreground mt-4">
             My educational background and project experience
           </p>
-          <a
-            href="#"
+          <button
             className="inline-flex items-center mt-6 px-5 py-2.5 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-300"
           >
             <Download className="h-4 w-4 mr-2" />
             Download Resume
-          </a>
+          </button>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -90,11 +88,11 @@ const Resume = () => {
             </div>
             
             <div className="space-y-8 relative before:absolute before:top-0 before:bottom-0 before:left-4 before:w-0.5 before:bg-border">
-              {workExperience.map((job, index) => (
+              {workExperience.map((job) => (
                 <div 
-                  key={index}
+                  key={`${job.title}-${job.company}`}
                   className="relative pl-10"
-                  style={{ animationDelay: `${0.3 + (index * 0.1)}s` }}
+                  style={{ animationDelay: `${0.3 + workExperience.indexOf(job) * 0.1}s` }}
                 >
                   <div className="absolute left-2 top-1 h-4 w-4 rounded-full bg-primary transform -translate-x-1/2"></div>
                   <div className="bg-card p-6 rounded-xl border border-border hover:border-primary/20 transition-all duration-300">
@@ -150,11 +148,11 @@ const Resume = () => {
             </div>
             
             <div className="space-y-8 relative before:absolute before:top-0 before:bottom-0 before:left-4 before:w-0.5 before:bg-border">
-              {education.map((edu, index) => (
+              {education.map((edu) => (
                 <div 
-                  key={index}
+                  key={`${edu.degree}-${edu.institution}`}
                   className="relative pl-10"
-                  style={{ animationDelay: `${0.5 + (index * 0.1)}s` }}
+                  style={{ animationDelay: `${0.5 + education.indexOf(edu) * 0.1}s` }}
                 >
                   <div className="absolute left-2 top-1 h-4 w-4 rounded-full bg-primary transform -translate-x-1/2"></div>
                   <div className="bg-card p-6 rounded-xl border border-border hover:border-primary/20 transition-all duration-300">
