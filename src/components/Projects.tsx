@@ -4,8 +4,8 @@ import { ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "Pet Adoption Platform",
-    description: "A modern pet adoption platform connecting loving homes with pets in need. Features a beautiful UI, pet filtering, and adoption request system.",
+    title: "Pet Adoption Front-End",
+    description: "A modern pet adoption platform connecting loving homes with pets in need. Features a beautiful UI",
     image: "/pets.png",
     tags: ["React", "TypeScript", "Tailwind CSS"],
     demoLink: "https://pets4doption.netlify.app",

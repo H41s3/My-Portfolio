@@ -7,10 +7,10 @@ const Resume = () => {
 
   const workExperience = [
     {
-      title: "Freelance Web Developer",
+      title: "Freelance Software Developer",
       company: "Client Projects",
       duration: "2023",
-      description: "Developed a pet adoption website frontend for a client, implementing responsive design and intuitive user interfaces. Also created an e-commerce website frontend for a business student at Far Eastern University (Philippines), which was showcased to professors as part of their marketing project."
+      description: "Developed the frontend for a pet adoption website for a marketing student client at Far Eastern University (Philippines), showcased to professors as part of a marketing project, with a focus on responsive design and an intuitive user interface."
     },
     {
       title: "Portfolio Developer",
@@ -25,7 +25,7 @@ const Resume = () => {
       degree: "Bachelor of Software Engineering",
       institution: "Deakin University",
       duration: "Present",
-      description: "Currently studying software engineering fundamentals, development methodologies, and specialized web technologies. Building a strong foundation for a career in software development."
+      description: "Currently pursuing a Bachelor of Software Engineering, focusing on software engineering fundamentals and development methodologies. In parallel, independently studying artificial intelligence, machine learning, and modern web technologies to broaden technical expertise and future-proof my career in software engineering."
     },
     {
       degree: "Diploma of Information Technology",
@@ -115,7 +115,7 @@ const Resume = () => {
                     <FileText className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="font-medium">Front-End Development</p>
+                    <p className="font-medium">Web Development</p>
                     <p className="text-xs text-muted-foreground">React, TypeScript, Tailwind CSS</p>
                   </div>
                 </li>
@@ -124,8 +124,8 @@ const Resume = () => {
                     <FileText className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="font-medium">UI/UX Design Principles</p>
-                    <p className="text-xs text-muted-foreground">Responsive Design, Accessibility</p>
+                    <p className="font-medium">Artificial Intelligence</p>
+                    <p className="text-xs text-muted-foreground">Machine Learning and Deep Learning</p>
                   </div>
                 </li>
                 <li className="flex items-start">
