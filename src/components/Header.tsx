@@ -35,8 +35,12 @@ const Header = () => {
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between">
           <a
-            href="#"
+            href="#top"
             className="text-xl md:text-2xl font-serif font-bold tracking-tight text-foreground"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
           >
             Portfolio
           </a>
