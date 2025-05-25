@@ -8,7 +8,7 @@ const projects = [
     description: "",
     image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?q=80&w=1064&auto=format&fit=crop",
     tags: ["React", "TypeScript", "Tailwind CSS"],
-    demoLink: "pets4doption.netlify.app",
+    demoLink: "https://pets4doption.netlify.app",
     githubLink: "#",
     featured: true
   },
