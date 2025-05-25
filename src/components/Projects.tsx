@@ -15,9 +15,9 @@ const projects = [
   {
     id: 2,
     title: "Recipe App (Cuisinefy)",
-    description: "A collaborative task management application with real-time updates and team workspaces.",
-    image: "https://images.unsplash.com/photo-1629904853893-c2c8c2417d1c?q=80&w=1470&auto=format&fit=crop",
-    tags: ["Vue.js", "Firebase", "Tailwind CSS"],
+    description: "A responsive recipe management application built with React and styled using Tailwind CSS. Cuisinefy allows users to browse, search, and save their favorite recipes in an intuitive, modern interface.",
+    image: "/cuisinefy.png",
+    tags: ["React", "Tailwind CSS", "API"],
     demoLink: "#",
     githubLink: "#",
     featured: true
