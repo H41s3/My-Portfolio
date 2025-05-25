@@ -78,9 +78,9 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div 
+            <button 
               key={project.id}
-              className={`project-card bg-card ${isVisible ? "animate-slide-in-bottom" : "opacity-0"}`}
+              className={`project-card bg-card w-full text-left ${isVisible ? "animate-slide-in-bottom" : "opacity-0"}`}
               style={{ animationDelay: `${0.1 * (index + 1)}s` }}
               onClick={() => setSelectedProject(project)}
             >
@@ -128,7 +128,7 @@ const Projects = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
 
