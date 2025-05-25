@@ -5,8 +5,8 @@ const projects = [
   {
     id: 1,
     title: "Pet Adoption Platform",
-    description: "",
-    image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?q=80&w=1064&auto=format&fit=crop",
+    description: "A modern pet adoption platform connecting loving homes with pets in need. Features a beautiful UI, pet filtering, and adoption request system.",
+    image: "/pets.png",
     tags: ["React", "TypeScript", "Tailwind CSS"],
     demoLink: "https://pets4doption.netlify.app",
     githubLink: "#",
@@ -14,7 +14,7 @@ const projects = [
   },
   {
     id: 2,
-    title: "Task Management App",
+    title: "Recipe App (Cuisinefy)",
     description: "A collaborative task management application with real-time updates and team workspaces.",
     image: "https://images.unsplash.com/photo-1629904853893-c2c8c2417d1c?q=80&w=1470&auto=format&fit=crop",
     tags: ["Vue.js", "Firebase", "Tailwind CSS"],
