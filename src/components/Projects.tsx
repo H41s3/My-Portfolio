@@ -211,15 +211,14 @@ const Projects = () => {
                       <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
                         <li>Responsive design with optimal user experience on all devices</li>
                         <li>Intuitive and accessible interface with smooth animations</li>
-                        <li>Robust backend with secure data management</li>
-                        <li>Comprehensive test coverage ensuring reliability</li>
+                        <li>Fully responsive design with optimal user experience on all devices</li>
                       </ul>
                     </div>
                     
                     <div className="mb-6">
                       <h4 className="text-sm font-medium mb-2">Challenges & Solutions</h4>
                       <p className="text-sm text-muted-foreground">
-                        During development, I encountered challenges with performance optimization and data synchronization. I implemented efficient caching strategies and optimized database queries to ensure a smooth user experience even under heavy loads.
+                        During development, a key challenge was ensuring consistent responsiveness and accessibility across a range of devices and screen sizes while maintaining a clean and visually appealing interface. I addressed this by implementing a mobile-first design approach, utilizing Tailwind CSS’s utility classes effectively, and refining animations to balance smoothness and performance. Additionally, I optimized the component structure to improve maintainability and scalability for future feature additions.
                       </p>
                     </div>
                     
