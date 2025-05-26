@@ -38,6 +38,12 @@ const projects = [
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    return () => setMounted(false);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -133,19 +139,34 @@ const Projects = () => {
           ))}
         </div>
 
-        {selectedProject && createPortal(
+        {selectedProject && mounted && createPortal(
           <>
             <div 
               className="fixed inset-0 bg-background/80 backdrop-blur-sm z-[99999] overflow-hidden"
               onClick={() => setSelectedProject(null)}
-              style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+              style={{ 
+                position: 'fixed', 
+                top: 0, 
+                left: 0, 
+                right: 0, 
+                bottom: 0,
+                isolation: 'isolate'
+              }}
             />
             <div 
               className="fixed inset-0 z-[99999] flex items-center justify-center p-4"
-              style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+              style={{ 
+                position: 'fixed', 
+                top: 0, 
+                left: 0, 
+                right: 0, 
+                bottom: 0,
+                isolation: 'isolate'
+              }}
             >
               <div 
                 className="relative w-full max-w-4xl bg-card rounded-xl shadow-lg my-4 max-h-[90vh] overflow-hidden" 
+                style={{ isolation: 'isolate' }}
                 onClick={(e) => e.stopPropagation()}
               >
                 <button 
