@@ -11,17 +11,31 @@ const projects = [
     tags: ["React", "TypeScript", "Tailwind CSS"],
     demoLink: "https://pets4doption.netlify.app",
     githubLink: "#",
-    featured: true
+    featured: true,
+    keyFeatures: [
+      "Advanced search and filtering system for pets",
+      "Real-time pet availability updates",
+      "Interactive pet profile galleries",
+      "Responsive design for all devices"
+    ],
+    challenges: "A key challenge was implementing the real-time pet availability system while maintaining optimal performance. I solved this by implementing efficient state management and data caching strategies, reducing unnecessary re-renders and API calls."
   },
   {
     id: 2,
     title: "Recipe App (Cuisinefy)",
-    description: "A responsive recipe management application built with React and styled using Tailwind CSS. Cuisinefy allows users to browse, search, and save their favorite recipes in an intuitive, modern interface.",
+    description: "A responsive recipe management application built with React and styled using Tailwind CSS. Cuisinefy allows users to browse, search, and save their favorite recipes through an intuitive, modern interface. The app integrates the Edamam API to fetch real-time recipe data based on user input.",
     image: "/cuisinefy.png",
     tags: ["React", "Tailwind CSS", "API"],
     demoLink: "#",
     githubLink: "#",
-    featured: true
+    featured: true,
+    keyFeatures: [
+      "Dynamic recipe search with multiple filters",
+      "Personalized recipe recommendations",
+      "Ingredient-based recipe suggestions",
+      "Nutrition information display"
+    ],
+    challenges: "The main challenge was optimizing API calls to the Edamam service while providing a seamless user experience. I implemented debouncing for search queries and local storage caching to reduce API usage and improve response times."
   },
   {
     id: 3,
@@ -31,7 +45,14 @@ const projects = [
     tags: ["React", "D3.js", "Express", "PostgreSQL"],
     demoLink: "#",
     githubLink: "#",
-    featured: false
+    featured: false,
+    keyFeatures: [
+      "Interactive data visualization with D3.js",
+      "Custom goal setting and tracking",
+      "Progress analytics and reporting",
+      "Real-time health metric updates"
+    ],
+    challenges: "Developing complex data visualizations that remained performant with large datasets was challenging. I implemented data aggregation on the backend and progressive loading techniques to maintain smooth interactions even with extensive historical data."
   }
 ];
 
@@ -90,6 +111,9 @@ const Projects = () => {
               className={`project-card bg-card w-full text-left ${isVisible ? "animate-slide-in-bottom" : "opacity-0"}`}
               style={{ animationDelay: `${0.1 * (index + 1)}s` }}
               onClick={() => setSelectedProject(project)}
+              tabIndex={0}
+              aria-label={`View details of ${project.title}`}
+              onKeyDown={(e) => e.key === 'Enter' && setSelectedProject(project)}
             >
               <div className="relative aspect-video overflow-hidden bg-white">
                 <img 
@@ -141,7 +165,7 @@ const Projects = () => {
 
         {selectedProject && mounted && createPortal(
           <>
-            <div 
+            <button 
               className="fixed inset-0 bg-background/80 backdrop-blur-sm z-[99999] overflow-hidden"
               onClick={() => setSelectedProject(null)}
               style={{ 
@@ -152,6 +176,7 @@ const Projects = () => {
                 bottom: 0,
                 isolation: 'isolate'
               }}
+              aria-label="Close project details"
             />
             <div 
               className="fixed inset-0 z-[99999] flex items-center justify-center p-4"
@@ -164,10 +189,11 @@ const Projects = () => {
                 isolation: 'isolate'
               }}
             >
-              <div 
+              <dialog 
                 className="relative w-full max-w-4xl bg-card rounded-xl shadow-lg my-4 max-h-[90vh] overflow-hidden" 
                 style={{ isolation: 'isolate' }}
-                onClick={(e) => e.stopPropagation()}
+                aria-labelledby="modal-title"
+                open
               >
                 <button 
                   className="absolute top-4 right-4 z-[10000] p-1 rounded-full bg-background/50 hover:bg-background/80 transition-colors"
@@ -187,7 +213,7 @@ const Projects = () => {
                     />
                   </div>
                   <div className="p-6 md:p-8 overflow-y-auto max-h-[calc(90vh-8rem)] scroll-smooth">
-                    <h3 className="text-2xl font-serif font-semibold mb-4">{selectedProject.title}</h3>
+                    <h3 id="modal-title" className="text-2xl font-serif font-semibold mb-4">{selectedProject.title}</h3>
                     <p className="text-muted-foreground mb-6">
                       {selectedProject.description}
                     </p>
@@ -209,16 +235,16 @@ const Projects = () => {
                     <div className="mb-6">
                       <h4 className="text-sm font-medium mb-2">Key Features</h4>
                       <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
-                        <li>Responsive design with optimal user experience on all devices</li>
-                        <li>Intuitive and accessible interface with smooth animations</li>
-                        <li>Fully responsive design with optimal user experience on all devices</li>
+                        {selectedProject.keyFeatures.map((feature, index) => (
+                          <li key={index}>{feature}</li>
+                        ))}
                       </ul>
                     </div>
                     
                     <div className="mb-6">
                       <h4 className="text-sm font-medium mb-2">Challenges & Solutions</h4>
                       <p className="text-sm text-muted-foreground">
-                        During development, a key challenge was ensuring consistent responsiveness and accessibility across a range of devices and screen sizes while maintaining a clean and visually appealing interface. I addressed this by implementing a mobile-first design approach, utilizing Tailwind CSS’s utility classes effectively, and refining animations to balance smoothness and performance. Additionally, I optimized the component structure to improve maintainability and scalability for future feature additions.
+                        {selectedProject.challenges}
                       </p>
                     </div>
                     
@@ -238,7 +264,7 @@ const Projects = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </dialog>
             </div>
           </>,
           document.body
