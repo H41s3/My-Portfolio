@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ExternalLink, Github } from "lucide-react";
+import { createPortal } from "react-dom";
 
 const projects = [
   {
@@ -132,81 +133,95 @@ const Projects = () => {
           ))}
         </div>
 
-        {selectedProject && (
-          <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
-            <div className="relative max-w-4xl w-full bg-card rounded-xl shadow-lg overflow-hidden max-h-[90vh] animate-scale">
-              <button 
-                className="absolute top-4 right-4 z-10 p-1 rounded-full bg-background/50 hover:bg-background/80 transition-colors"
-                onClick={() => setSelectedProject(null)}
+        {selectedProject && createPortal(
+          <>
+            <div 
+              className="fixed inset-0 bg-background/80 backdrop-blur-sm z-[99999] overflow-hidden"
+              onClick={() => setSelectedProject(null)}
+              style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+            />
+            <div 
+              className="fixed inset-0 z-[99999] flex items-center justify-center p-4"
+              style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+            >
+              <div 
+                className="relative w-full max-w-4xl bg-card rounded-xl shadow-lg my-4 max-h-[90vh] overflow-hidden" 
+                onClick={(e) => e.stopPropagation()}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
-              <div className="grid grid-cols-1 md:grid-cols-2">
-                <div className="h-full">
-                  <img 
-                    src={selectedProject.image} 
-                    alt={selectedProject.title} 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-6 md:p-8 overflow-y-auto max-h-[90vh] md:max-h-none">
-                  <h3 className="text-2xl font-serif font-semibold mb-4">{selectedProject.title}</h3>
-                  <p className="text-muted-foreground mb-6">
-                    {selectedProject.description}
-                  </p>
-                  
-                  <div className="mb-6">
-                    <h4 className="text-sm font-medium mb-2">Technologies Used</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedProject.tags.map((tag) => (
-                        <span 
-                          key={tag} 
-                          className="skill-pill"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                <button 
+                  className="absolute top-4 right-4 z-[10000] p-1 rounded-full bg-background/50 hover:bg-background/80 transition-colors"
+                  onClick={() => setSelectedProject(null)}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+                <div className="grid grid-cols-1 md:grid-cols-2 overflow-hidden">
+                  <div className="relative h-full">
+                    <img 
+                      src={selectedProject.image} 
+                      alt={selectedProject.title} 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  
-                  <div className="mb-6">
-                    <h4 className="text-sm font-medium mb-2">Key Features</h4>
-                    <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
-                      <li>Responsive design with optimal user experience on all devices</li>
-                      <li>Intuitive and accessible interface with smooth animations</li>
-                      <li>Robust backend with secure data management</li>
-                      <li>Comprehensive test coverage ensuring reliability</li>
-                    </ul>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <h4 className="text-sm font-medium mb-2">Challenges & Solutions</h4>
-                    <p className="text-sm text-muted-foreground">
-                      During development, I encountered challenges with performance optimization and data synchronization. I implemented efficient caching strategies and optimized database queries to ensure a smooth user experience even under heavy loads.
+                  <div className="p-6 md:p-8 overflow-y-auto max-h-[calc(90vh-8rem)] scroll-smooth">
+                    <h3 className="text-2xl font-serif font-semibold mb-4">{selectedProject.title}</h3>
+                    <p className="text-muted-foreground mb-6">
+                      {selectedProject.description}
                     </p>
-                  </div>
-                  
-                  <div className="flex gap-4 mt-8">
-                    <a 
-                      href={selectedProject.demoLink} 
-                      className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors"
-                    >
-                      View Live Demo <ExternalLink className="h-4 w-4 ml-2" />
-                    </a>
-                    <a 
-                      href={selectedProject.githubLink} 
-                      className="inline-flex items-center justify-center px-4 py-2 border border-primary text-sm font-medium rounded-md text-primary bg-transparent hover:bg-primary/10 transition-colors"
-                    >
-                      View Code <Github className="h-4 w-4 ml-2" />
-                    </a>
+                    
+                    <div className="mb-6">
+                      <h4 className="text-sm font-medium mb-2">Technologies Used</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedProject.tags.map((tag) => (
+                          <span 
+                            key={tag} 
+                            className="skill-pill"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="mb-6">
+                      <h4 className="text-sm font-medium mb-2">Key Features</h4>
+                      <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
+                        <li>Responsive design with optimal user experience on all devices</li>
+                        <li>Intuitive and accessible interface with smooth animations</li>
+                        <li>Robust backend with secure data management</li>
+                        <li>Comprehensive test coverage ensuring reliability</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="mb-6">
+                      <h4 className="text-sm font-medium mb-2">Challenges & Solutions</h4>
+                      <p className="text-sm text-muted-foreground">
+                        During development, I encountered challenges with performance optimization and data synchronization. I implemented efficient caching strategies and optimized database queries to ensure a smooth user experience even under heavy loads.
+                      </p>
+                    </div>
+                    
+                    <div className="flex gap-4 mt-8">
+                      <a 
+                        href={selectedProject.demoLink} 
+                        className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors"
+                      >
+                        View Live Demo <ExternalLink className="h-4 w-4 ml-2" />
+                      </a>
+                      <a 
+                        href={selectedProject.githubLink} 
+                        className="inline-flex items-center justify-center px-4 py-2 border border-primary text-sm font-medium rounded-md text-primary bg-transparent hover:bg-primary/10 transition-colors"
+                      >
+                        View Code <Github className="h-4 w-4 ml-2" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </>,
+          document.body
         )}
       </div>
     </section>
