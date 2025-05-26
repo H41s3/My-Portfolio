@@ -13,12 +13,11 @@ const projects = [
     githubLink: "#",
     featured: true,
     keyFeatures: [
-      "Advanced search and filtering system for pets",
-      "Real-time pet availability updates",
-      "Interactive pet profile galleries",
-      "Responsive design for all devices"
+      "Responsive design with optimal user experience on all devices",
+      "Intuitive and accessible interface with smooth animations",
+      "Clean, scalable component structure using React and TypeScript"
     ],
-    challenges: "A key challenge was implementing the real-time pet availability system while maintaining optimal performance. I solved this by implementing efficient state management and data caching strategies, reducing unnecessary re-renders and API calls."
+    challenges: "During development, a key challenge was ensuring consistent responsiveness and accessibility across a range of devices and screen sizes while maintaining a clean and visually appealing interface. I addressed this by implementing a mobile-first design approach, utilizing Tailwind CSS’s utility classes effectively, and refining animations to balance smoothness and performance. Additionally, I optimized the component structure to improve maintainability and scalability for future feature additions."
   },
   {
     id: 2,
