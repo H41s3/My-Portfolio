@@ -9,7 +9,7 @@ const projects = [
     description: "A modern pet adoption platform connecting loving homes with pets in need. Features a beautiful UI",
     image: "/pets.png",
     tags: ["React", "TypeScript", "Tailwind CSS"],
-    demoLink: "https://pets4doption.netlify.app",
+    demoLink: "https://p3tpals.netlify.app",
     githubLink: "#",
     featured: true,
     keyFeatures: [
