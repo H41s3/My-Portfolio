@@ -67,7 +67,7 @@ const Hero = () => {
                   <span className="text-white ml-2">[</span>
                   <span className="text-orange-300">'React'</span><span className="text-white">,</span>
                   <span className="text-orange-300 ml-1">'TypeScript'</span><span className="text-white">,</span>
-                  <span className="text-orange-300 ml-1">'UI/UX'</span>
+                  <span className="text-orange-300 ml-1">'Python'</span>
                   <span className="text-white">]</span><span className="text-white">,</span>
                 </div>
                 <div className="flex ml-4">

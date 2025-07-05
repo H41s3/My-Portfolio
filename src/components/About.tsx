@@ -40,7 +40,7 @@ const About = () => {
             My Journey as a Developer
           </h2>
           <p className="text-muted-foreground mt-4">
-            I'm a passionate software engineering student focused on creating elegant and efficient solutions to complex problems.
+            I'm an aspiring Software Engineer focused on creating efficient solutions to complex problems.
           </p>
         </div>
 
