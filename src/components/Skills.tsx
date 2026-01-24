@@ -1,53 +1,52 @@
 
 import { useState, useEffect } from "react";
-import { Monitor, Database, Server, Layout, Figma, Code2 } from "lucide-react";
+import { Monitor, Database, Server, Brain, Code2 } from "lucide-react";
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const skillCategories = [
     {
-      name: "Frontend",
-      icon: <Monitor className="h-6 w-6" />,
+      name: "AI & Machine Learning",
+      icon: <Brain className="h-6 w-6" />,
       skills: [
-        { name: "React", level: 90 },
-        { name: "JavaScript", level: 85 },
-        { name: "TypeScript", level: 80 },
-        { name: "HTML/CSS", level: 90 },
-        { name: "Tailwind CSS", level: 85 },
-        { name: "Next.js", level: 75 },
+        { name: "Python", level: 85 },
+        { name: "scikit-learn", level: 75 },
+        { name: "TensorFlow", level: 70 },
+        { name: "Pandas", level: 80 },
+        { name: "NumPy", level: 80 },
       ],
     },
     {
       name: "Backend",
       icon: <Server className="h-6 w-6" />,
       skills: [
-        { name: "Node.js", level: 80 },
-        { name: "Express", level: 85 },
-        { name: "Python", level: 70 },
-        { name: "API Development", level: 85 },
-        { name: "Authentication", level: 80 },
+        { name: "Python", level: 85 },
+        { name: "Flask/FastAPI", level: 75 },
+        { name: "REST APIs", level: 80 },
+        { name: "Node.js", level: 70 },
+        { name: "Authentication", level: 75 },
       ],
     },
     {
       name: "Database",
       icon: <Database className="h-6 w-6" />,
       skills: [
-        { name: "MongoDB", level: 80 },
         { name: "PostgreSQL", level: 75 },
+        { name: "MongoDB", level: 75 },
         { name: "SQL", level: 80 },
         { name: "Redis", level: 65 },
       ],
     },
     {
-      name: "Tools & Others",
-      icon: <Code2 className="h-6 w-6" />,
+      name: "Frontend & Tools",
+      icon: <Monitor className="h-6 w-6" />,
       skills: [
-        { name: "Git", level: 90 },
+        { name: "React", level: 80 },
+        { name: "TypeScript", level: 75 },
+        { name: "Git", level: 85 },
         { name: "Docker", level: 70 },
-        { name: "CI/CD", level: 75 },
-        { name: "AWS", level: 65 },
-        { name: "Jest", level: 80 },
+        { name: "Linux", level: 75 },
       ],
     },
   ];
@@ -87,7 +86,7 @@ const Skills = () => {
             Skills & Technologies
           </h2>
           <p className="text-muted-foreground mt-4">
-            I've worked with a range of technologies in the web development world, from frontend to backend.
+            I work with technologies across machine learning, backend development, and data systems.
           </p>
         </div>
 
@@ -137,19 +136,17 @@ const Skills = () => {
                 </span>
               ))
             )}
-            <span className="skill-pill">Redux</span>
-            <span className="skill-pill">GraphQL</span>
-            <span className="skill-pill">Sass</span>
-            <span className="skill-pill">Webpack</span>
+            <span className="skill-pill">Jupyter</span>
+            <span className="skill-pill">Matplotlib</span>
+            <span className="skill-pill">PyTorch</span>
+            <span className="skill-pill">OpenAI API</span>
             <span className="skill-pill">RESTful APIs</span>
             <span className="skill-pill">Firebase</span>
-            <span className="skill-pill">Vercel</span>
-            <span className="skill-pill">Netlify</span>
+            <span className="skill-pill">AWS</span>
             <span className="skill-pill">GitHub Actions</span>
-            <span className="skill-pill">C#</span>
             <span className="skill-pill">C++</span>
-            <span className="skill-pill">Arduino</span>
-            <span className="skill-pill">Raspberry Pi</span>
+            <span className="skill-pill">Data Processing</span>
+            <span className="skill-pill">NLP</span>
           </div>
         </div>
       </div>

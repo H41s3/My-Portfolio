@@ -15,8 +15,8 @@ const Hero = () => {
               <span className="block">Hi, I'm </span>
               <span className="text-primary">Emilio</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-md">
-              Building clean, user-focused software with thoughtful design and working with AI, Machine Learning, and Intelligent Systems.
+<p className="text-lg md:text-xl text-muted-foreground max-w-md">
+              Building intelligent systems with Python, machine learning, and backend technologies. Passionate about AI and solving complex problems.
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
               <a
@@ -63,16 +63,16 @@ const Hero = () => {
                   <span className="text-orange-300 ml-2">'Emilio'</span><span className="text-white">,</span>
                 </div>
                 <div className="flex ml-4">
-                  <span className="text-green-400">skills:</span>
+<span className="text-green-400">skills:</span>
                   <span className="text-white ml-2">[</span>
-                  <span className="text-orange-300">'React'</span><span className="text-white">,</span>
-                  <span className="text-orange-300 ml-1">'TypeScript'</span><span className="text-white">,</span>
-                  <span className="text-orange-300 ml-1">'Python'</span>
+                  <span className="text-orange-300">'Python'</span><span className="text-white">,</span>
+                  <span className="text-orange-300 ml-1">'ML'</span><span className="text-white">,</span>
+                  <span className="text-orange-300 ml-1">'Backend'</span>
                   <span className="text-white">]</span><span className="text-white">,</span>
                 </div>
                 <div className="flex ml-4">
-                  <span className="text-green-400">passion:</span>
-                  <span className="text-orange-300 ml-2">'Building amazing web experiences'</span>
+<span className="text-green-400">passion:</span>
+                  <span className="text-orange-300 ml-2">'Building intelligent systems'</span>
                 </div>
                 <div className="text-white">{'}'}</div>
                 <div className="flex mt-2">
