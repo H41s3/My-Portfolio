@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Award, BookOpen, Code, Heart } from "lucide-react";
+import { Award, BookOpen, Code, Brain } from "lucide-react";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -50,13 +50,13 @@ const About = () => {
             style={{ animationDelay: "0.2s" }}
           >
             <p className="leading-relaxed">
-              I’m a dedicated software engineering student at Deakin University with a strong foundation in modern development practices. My journey began with a curiosity about how technology can solve real-world problems, which inspired me to pursue a career in software development.
+              I'm a software engineering student at Deakin University drawn to the world of machine learning, artificial intelligence, and backend systems. My journey started with a fascination for how intelligent systems can solve real-world problems — from automating tasks to making sense of complex data.
             </p>
             <p className="leading-relaxed">
-              With a focus on writing clean, maintainable code and crafting intuitive user experiences, I strive to build applications that are both reliable and enjoyable to use. I’m actively expanding my skills in AI, machine learning, and intelligent systems, alongside core software engineering principles.
+              I enjoy working with Python to build robust backend solutions and experiment with ML models. While I've built web applications to sharpen my full-stack skills, my real passion lies in what happens behind the scenes — designing APIs, processing data, and creating systems that think.
             </p>
             <p className="leading-relaxed">
-              When I’m not coding, you’ll find me keeping up with the latest tech trends, working on personal projects, sharing what I learn with the developer community — or watching cat videos because, well, who doesn’t love cats?
+              When I'm not coding, you'll find me exploring the latest in AI research, tinkering with personal projects, or watching cat videos — because even future ML engineers need a break.
             </p>
           </div>
 
@@ -73,10 +73,10 @@ const About = () => {
             </div>
             
             <div className="p-6 rounded-xl bg-muted/50 border border-border hover:shadow-md hover:border-primary/20 transition-all duration-300">
-              <Heart className="h-8 w-8 text-primary mb-4" />
-              <h3 className="text-lg font-medium mb-2">User-Focused</h3>
+              <Brain className="h-8 w-8 text-primary mb-4" />
+              <h3 className="text-lg font-medium mb-2">AI & ML Focus</h3>
               <p className="text-sm text-muted-foreground">
-                I create intuitive experiences that delight users.
+                I build intelligent systems that learn and adapt.
               </p>
             </div>
             
