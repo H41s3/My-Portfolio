@@ -10,7 +10,7 @@ const projects = [
     image: "/pets.png",
     tags: ["React", "TypeScript", "Tailwind CSS"],
     demoLink: "https://p3tpals.netlify.app",
-    githubLink: "#",
+    githubLink: "https://github.com/H41s3/Pet-Pals.git",
     featured: true,
     keyFeatures: [
       "Responsive design with optimal user experience on all devices",
