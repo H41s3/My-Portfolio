@@ -43,7 +43,7 @@ const projects = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop",
     tags: ["React", "D3.js", "Express", "PostgreSQL"],
     demoLink: "https://he3lthflow.netlify.app/",
-    githubLink: "#",
+    githubLink: "https://github.com/H41s3/Health-Tracker.git",
     featured: false,
     keyFeatures: [
       "Interactive data visualization with D3.js",
