@@ -26,7 +26,7 @@ const projects = [
     image: "/cuisinefy.png",
     tags: ["React", "Tailwind CSS", "API"],
     demoLink: "https://cu1sinefy.netlify.app/",
-    githubLink: "#",
+    githubLink: "https://github.com/H41s3/cuisinefyy.git",
     featured: true,
     keyFeatures: [
       "Dynamic recipe search with multiple filters",
