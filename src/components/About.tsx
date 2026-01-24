@@ -40,7 +40,7 @@ const About = () => {
             My Journey as a Developer
           </h2>
           <p className="text-muted-foreground mt-4">
-            I'm an aspiring Software Engineer focused on creating efficient solutions to complex problems.
+          Software Engineering student at Deakin University focused on machine learning, AI, and backend development with Python. I enjoy solving complex problems and building systems that work behind the scenes.
           </p>
         </div>
 
