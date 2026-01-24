@@ -25,7 +25,7 @@ const projects = [
     description: "A responsive recipe management application built with React and styled using Tailwind CSS. Cuisinefy allows users to browse, search, and save their favorite recipes through an intuitive, modern interface. The app integrates the Edamam API to fetch real-time recipe data based on user input.",
     image: "/cuisinefy.png",
     tags: ["React", "Tailwind CSS", "API"],
-    demoLink: "#",
+    demoLink: "https://cu1sinefy.netlify.app/",
     githubLink: "#",
     featured: true,
     keyFeatures: [
@@ -42,7 +42,7 @@ const projects = [
     description: "An intuitive dashboard for health metrics visualization and goal tracking.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop",
     tags: ["React", "D3.js", "Express", "PostgreSQL"],
-    demoLink: "#",
+    demoLink: "https://he3lthflow.netlify.app/",
     githubLink: "#",
     featured: false,
     keyFeatures: [
