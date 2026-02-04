@@ -21,7 +21,7 @@ const Resume = () => {
 
   const education = [
     {
-      degree: "Bachelor of Software Engineering",
+      degree: "Bachelor of Software Engineering (Honours)",
       institution: "Deakin University",
       duration: "Present",
       description: "Currently pursuing a Bachelor of Software Engineering, focusing on software engineering fundamentals and development methodologies. In parallel, independently studying artificial intelligence, machine learning, and modern web technologies to broaden technical expertise and future-proof my career in software engineering."
@@ -30,7 +30,7 @@ const Resume = () => {
       degree: "Diploma of Information Technology",
       institution: "Deakin University",
       duration: "Completed",
-      description: "Gained foundational knowledge in information technology, including programming basics, database concepts, and system analysis."
+      description: "Gained foundational knowledge in information technology, including programming fundamentals, database concepts, and system analysis."
     }
   ];
 
