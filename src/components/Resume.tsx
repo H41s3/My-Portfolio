@@ -24,7 +24,7 @@ const Resume = () => {
       degree: "Bachelor of Software Engineering (Honours)",
       institution: "Deakin University",
       duration: "Present",
-      description: "Currently pursuing a Bachelor of Software Engineering, focusing on software engineering fundamentals and development methodologies. In parallel, independently studying artificial intelligence, machine learning, and modern web technologies to broaden technical expertise and future-proof my career in software engineering."
+      description: "Currently pursuing a Bachelor of Software Engineering (Honours), focusing on software engineering fundamentals and development methodologies. In parallel, independently studying artificial intelligence, machine learning, and modern web technologies to broaden technical expertise and future-proof my career in software engineering."
     },
     {
       degree: "Diploma of Information Technology",
