@@ -1,17 +1,69 @@
 import { useState, useEffect } from "react";
-import { ExternalLink, Github } from "lucide-react";
+import { ChevronsDown, ChevronsUp, ExternalLink, Github } from "lucide-react";
 import { createPortal } from "react-dom";
 
 const projects = [
   {
     id: 1,
+    title: "Sentiment Analysis API",
+    description: "A production ML-serving API using FastAPI and quantized DistilBERT, with request-scoped async offloading so CPU-bound inference never blocks the event loop.",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1470&auto=format&fit=crop",
+    tags: ["FastAPI", "PyTorch", "Hugging Face", "Docker", "Prometheus", "Grafana"],
+    demoLink: "https://sentiment-api-nv4e.onrender.com/docs",
+    demoLabel: "API Docs",
+    githubLink: "https://github.com/H41s3/sentiment-api",
+    featured: true,
+    keyFeatures: [
+      "Layered production ML-serving API (FastAPI + quantized DistilBERT) with request-scoped async offloading",
+      "Strict Pydantic API contracts, opt-in API-key auth, and per-key rate limiting with a Redis-backed distributed counter",
+      "Full observability with custom Prometheus metrics, provisioned Grafana dashboards, and a 358-test suite enforced by a 95% coverage gate in CI",
+      "336 incrementally-scoped commits documenting the full build, deploy, and debugging history"
+    ],
+    challenges: "Debugged a real production memory crash under a hard 512MB deployment ceiling — isolated the root cause, tested three fix candidates, and verified the final result at ~442MB stable against live platform metrics. Also fixed a multi-worker rate-limit drift bug with a Redis-backed distributed counter."
+  },
+  {
+    id: 2,
+    title: "p1p — Desktop Companion App",
+    description: "A BB-8-style system tray companion that sends gentle wellness nudges throughout the workday — stretch reminders, hydration prompts, and motivational boosts. Packaged for Windows and Mac and published on the Microsoft Store.",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1470&auto=format&fit=crop",
+    tags: ["Electron", "JavaScript", "HTML/CSS", "GitHub Actions", "electron-builder"],
+    demoLink: "https://apps.microsoft.com/search?query=p1p",
+    demoLabel: "Microsoft Store",
+    featured: true,
+    keyFeatures: [
+      "BB-8-style system tray companion with stretch, hydration, and motivational wellness nudges",
+      "Packaged for Windows and Mac using electron-builder",
+      "Automated Microsoft Store builds via a GitHub Actions CI/CD pipeline",
+      "Originally built as a personal gift, then polished and published publicly after real-world testing"
+    ],
+    challenges: "Shipping a personal tray app to the Microsoft Store meant treating packaging and release as first-class work. I automated Windows and Mac builds with electron-builder and GitHub Actions so store submissions stayed repeatable instead of being a one-off local process."
+  },
+  {
+    id: 3,
+    title: "Lvo — Emotional Clarity AI",
+    description: "A personal AI companion built with React, Vite, and Tailwind CSS, using the OpenAI API to help users work through feelings with clearer, more grounded conversations.",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1470&auto=format&fit=crop",
+    tags: ["React", "Vite", "Tailwind CSS", "OpenAI API"],
+    demoLink: "https://lyai.netlify.app",
+    githubLink: "https://github.com/H41s3/LYO",
+    featured: true,
+    keyFeatures: [
+      "Conversational UI focused on emotional clarity rather than generic chatbot replies",
+      "React + Vite frontend styled with Tailwind CSS",
+      "OpenAI API integration for contextual, supportive responses",
+      "Deployed live on Netlify for easy sharing and iteration"
+    ],
+    challenges: "The main challenge was shaping an AI experience that felt personal and emotionally useful without becoming noisy or generic. I focused the prompt design and interface on short, clear conversations so the product stayed approachable while still using a capable model."
+  },
+  {
+    id: 4,
     title: "Pet Adoption Front-End",
     description: "A modern pet adoption platform connecting loving homes with pets in need. Features a beautiful UI",
     image: "/pets.png",
     tags: ["React", "TypeScript", "Tailwind CSS"],
     demoLink: "https://p3tpals.netlify.app",
     githubLink: "https://github.com/H41s3/Pet-Pals.git",
-    featured: true,
+    featured: false,
     keyFeatures: [
       "Responsive design with optimal user experience on all devices",
       "Intuitive and accessible interface with smooth animations",
@@ -20,14 +72,14 @@ const projects = [
     challenges: "During development, a key challenge was ensuring consistent responsiveness and accessibility across a range of devices and screen sizes while maintaining a clean and visually appealing interface. I addressed this by implementing a mobile-first design approach, utilizing Tailwind CSS’s utility classes effectively, and refining animations to balance smoothness and performance. Additionally, I optimized the component structure to improve maintainability and scalability for future feature additions."
   },
   {
-    id: 2,
+    id: 5,
     title: "Recipe App (Cuisinefy)",
     description: "A responsive recipe management application built with React and styled using Tailwind CSS. Cuisinefy allows users to browse, search, and save their favorite recipes through an intuitive, modern interface. The app integrates the Edamam API to fetch real-time recipe data based on user input.",
     image: "/cuisinefy.png",
     tags: ["React", "Tailwind CSS", "API"],
     demoLink: "https://cu1sinefy.netlify.app/",
     githubLink: "https://github.com/H41s3/cuisinefyy.git",
-    featured: true,
+    featured: false,
     keyFeatures: [
       "Dynamic recipe search with multiple filters",
       "Personalized recipe recommendations",
@@ -35,30 +87,18 @@ const projects = [
       "Nutrition information display"
     ],
     challenges: "The main challenge was optimizing API calls to the Edamam service while providing a seamless user experience. I implemented debouncing for search queries and local storage caching to reduce API usage and improve response times."
-  },
-  {
-    id: 3,
-    title: "Health Tracking Dashboard",
-    description: "An intuitive dashboard for health metrics visualization and goal tracking.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop",
-    tags: ["React", "D3.js", "Express", "PostgreSQL"],
-    demoLink: "https://he3lthflow.netlify.app/",
-    githubLink: "https://github.com/H41s3/Health-Tracker.git",
-    featured: false,
-    keyFeatures: [
-      "Interactive data visualization with D3.js",
-      "Custom goal setting and tracking",
-      "Progress analytics and reporting",
-      "Real-time health metric updates"
-    ],
-    challenges: "Developing complex data visualizations that remained performant with large datasets was challenging. I implemented data aggregation on the backend and progressive loading techniques to maintain smooth interactions even with extensive historical data."
   }
 ];
+
+const INITIAL_VISIBLE_COUNT = 1;
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const visibleProjects = showAllProjects ? projects : projects.slice(0, INITIAL_VISIBLE_COUNT);
+  const hasHiddenProjects = projects.length > INITIAL_VISIBLE_COUNT;
 
   useEffect(() => {
     setMounted(true);
@@ -103,11 +143,16 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <div
+          id="more-projects"
+          className={showAllProjects
+            ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            : "grid grid-cols-1 max-w-md mx-auto gap-8"}
+        >
+          {visibleProjects.map((project, index) => (
             <button 
               key={project.id}
-              className={`project-card bg-card w-full text-left ${isVisible ? "animate-slide-in-bottom" : "opacity-0"}`}
+              className={`project-card bg-card w-full text-left ${isVisible || showAllProjects ? "animate-slide-in-bottom" : "opacity-0"}`}
               style={{ animationDelay: `${0.1 * (index + 1)}s` }}
               onClick={() => setSelectedProject(project)}
               tabIndex={0}
@@ -146,21 +191,46 @@ const Projects = () => {
                     href={project.demoLink} 
                     className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors"
                     onClick={(e) => e.stopPropagation()}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Live Demo <ExternalLink className="h-4 w-4 ml-1" />
+                    {project.demoLabel ?? "Live Demo"} <ExternalLink className="h-4 w-4 ml-1" />
                   </a>
-                  <a 
-                    href={project.githubLink} 
-                    className="inline-flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    Code <Github className="h-4 w-4 ml-1" />
-                  </a>
+                  {project.githubLink && (
+                    <a 
+                      href={project.githubLink} 
+                      className="inline-flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Code <Github className="h-4 w-4 ml-1" />
+                    </a>
+                  )}
                 </div>
               </div>
             </button>
           ))}
         </div>
+
+        {hasHiddenProjects && (
+          <div className={`flex justify-center mt-10 ${isVisible ? "animate-fade-in" : "opacity-0"}`}>
+            <button
+              type="button"
+              onClick={() => setShowAllProjects((open) => !open)}
+              className="group p-3 rounded-full text-primary hover:bg-primary/10 transition-colors"
+              aria-expanded={showAllProjects}
+              aria-controls="more-projects"
+              aria-label={showAllProjects ? "Hide additional projects" : "Show all projects"}
+            >
+              {showAllProjects ? (
+                <ChevronsUp className="h-8 w-8 transition-transform group-hover:-translate-y-0.5" />
+              ) : (
+                <ChevronsDown className="h-8 w-8 animate-bounce transition-transform group-hover:translate-y-0.5" />
+              )}
+            </button>
+          </div>
+        )}
 
         {selectedProject && mounted && createPortal(
           <>
@@ -251,15 +321,21 @@ const Projects = () => {
                       <a 
                         href={selectedProject.demoLink} 
                         className="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
-                        View Live Demo <ExternalLink className="h-4 w-4 ml-2" />
+                        {selectedProject.demoLabel ? `View ${selectedProject.demoLabel}` : "View Live Demo"} <ExternalLink className="h-4 w-4 ml-2" />
                       </a>
-                      <a 
-                        href={selectedProject.githubLink} 
-                        className="inline-flex items-center justify-center px-4 py-2 border border-primary text-sm font-medium rounded-md text-primary bg-transparent hover:bg-primary/10 transition-colors"
-                      >
-                        View Code <Github className="h-4 w-4 ml-2" />
-                      </a>
+                      {selectedProject.githubLink && (
+                        <a 
+                          href={selectedProject.githubLink} 
+                          className="inline-flex items-center justify-center px-4 py-2 border border-primary text-sm font-medium rounded-md text-primary bg-transparent hover:bg-primary/10 transition-colors"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View Code <Github className="h-4 w-4 ml-2" />
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
