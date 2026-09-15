@@ -25,7 +25,7 @@ const projects = [
     id: 2,
     title: "p1p — Desktop Companion App",
     description: "A BB-8-style system tray companion that sends gentle wellness nudges throughout the workday — stretch reminders, hydration prompts, and motivational boosts. Packaged for Windows and Mac and published on the Microsoft Store.",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1470&auto=format&fit=crop",
+    image: "/p1p.png",
     tags: ["Electron", "JavaScript", "HTML/CSS", "GitHub Actions", "electron-builder"],
     demoLink: "https://apps.microsoft.com/search?query=p1p",
     demoLabel: "Microsoft Store",
