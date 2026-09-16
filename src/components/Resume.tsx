@@ -9,13 +9,20 @@ const Resume = () => {
       title: "Freelance Software Developer",
       company: "Client Projects",
       duration: "2023",
-      description: "Developed the frontend for a pet adoption website for a marketing student client at Far Eastern University (Philippines), showcased to professors as part of a marketing project, with a focus on responsive design and an intuitive user interface."
+      bullets: [
+        "Built the frontend for a pet-adoption website for a marketing student client at Far Eastern University (Philippines)",
+        "Presented to faculty as part of the client's marketing project, with a focus on responsive design and usability"
+      ]
     },
     {
-      title: "Portfolio Developer",
-      company: "Personal Projects",
-      duration: "Present",
-      description: "Building this portfolio and other projects to showcase my technical skills and development approach. Focused on modern web technologies and best practices to demonstrate capabilities to potential employers."
+      title: "Independent Developer",
+      company: "Self-Directed Projects",
+      duration: "2023 – Present",
+      bullets: [
+        "Shipped a production ML-serving API (FastAPI + DistilBERT) with Prometheus/Grafana observability and a 95%-coverage CI gate",
+        "Built an NLP-powered resume parser (FastAPI + spaCy) that extracts structured data and scores resumes automatically",
+        "Published a cross-platform desktop app to the Microsoft Store with an automated GitHub Actions release pipeline"
+      ]
     }
   ];
 
@@ -28,7 +35,7 @@ const Resume = () => {
     },
     {
       degree: "Diploma of Information Technology",
-      institution: "Deakin University",
+      institution: "Deakin College",
       duration: "Completed",
       description: "Gained foundational knowledge in information technology, including programming fundamentals, database concepts, and system analysis."
     }
@@ -70,12 +77,15 @@ const Resume = () => {
           <p className="text-muted-foreground mt-4">
             My educational background and project experience
           </p>
-          <button
+          {/* Add your resume PDF at public/resume.pdf — this link already points there, so it'll start working the moment the file exists. */}
+          <a
+            href="/resume.pdf"
+            download
             className="inline-flex items-center mt-6 px-5 py-2.5 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-300"
           >
             <Download className="h-4 w-4 mr-2" />
             Download Resume
-          </button>
+          </a>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -99,7 +109,11 @@ const Resume = () => {
                     <h4 className="text-lg font-serif font-semibold">{job.title}</h4>
                     <p className="text-primary text-sm mb-2">{job.company}</p>
                     <p className="text-muted-foreground text-xs mb-3">{job.duration}</p>
-                    <p className="text-sm">{job.description}</p>
+                    <ul className="list-disc pl-4 text-sm space-y-1">
+                      {job.bullets.map((bullet, i) => (
+                        <li key={i}>{bullet}</li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               ))}
@@ -166,16 +180,16 @@ const Resume = () => {
             </div>
             
             <div className="mt-12 bg-card p-6 rounded-xl border border-border">
-              <h4 className="text-lg font-serif font-semibold mb-4">Certifications</h4>
-              <p className="text-sm text-muted-foreground mb-4">Currently pursuing certifications to enhance my technical skills.</p>
+              <h4 className="text-lg font-serif font-semibold mb-4">Self-Directed Learning</h4>
+              <p className="text-sm text-muted-foreground mb-4">Building on my degree with independent study and hands-on project work.</p>
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <div className="p-1 rounded-full bg-primary/10 mr-3 mt-0.5 text-primary">
                     <FileText className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="font-medium">AWS Certified Developer</p>
-                    <p className="text-xs text-muted-foreground">Amazon Web Services, 2022</p>
+                    <p className="font-medium">Machine Learning & NLP</p>
+                    <p className="text-xs text-muted-foreground">Applied via scikit-learn, spaCy, and PyTorch in personal projects</p>
                   </div>
                 </li>
                 <li className="flex items-start">
@@ -183,8 +197,8 @@ const Resume = () => {
                     <FileText className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="font-medium">Professional Scrum Master I</p>
-                    <p className="text-xs text-muted-foreground">Scrum.org, 2021</p>
+                    <p className="font-medium">Production Backend Engineering</p>
+                    <p className="text-xs text-muted-foreground">API design, testing, observability, and deployment with FastAPI</p>
                   </div>
                 </li>
                 <li className="flex items-start">
@@ -192,8 +206,8 @@ const Resume = () => {
                     <FileText className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="font-medium">Google UX Design Certificate</p>
-                    <p className="text-xs text-muted-foreground">Google, 2020</p>
+                    <p className="font-medium">Full-Stack Delivery</p>
+                    <p className="text-xs text-muted-foreground">Shipping and maintaining live apps end to end, from database to UI</p>
                   </div>
                 </li>
               </ul>
