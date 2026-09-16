@@ -15,8 +15,8 @@ const Hero = () => {
               <span className="block">Hi, I'm </span>
               <span className="text-primary">Emilio</span>
             </h1>
-<p className="text-lg md:text-xl text-muted-foreground max-w-md">
-              Building intelligent systems with Python, machine learning, and backend technologies. Passionate about AI and solving complex problems.
+            <p className="text-lg md:text-xl text-muted-foreground max-w-md">
+              I build and ship intelligent systems — from production ML APIs to full-stack apps — using Python, machine learning, and modern backend technologies.
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
               <a
@@ -81,7 +81,9 @@ const Hero = () => {
                   <span className="text-white">()</span>
                   <span className="text-white ml-2">{'{'}</span>
                 </div>
-                <div className="text-green-300 ml-4">// Let's build something great together</div>
+                <div className="text-green-300 ml-4">// Shipping ML APIs, not just notebooks</div>
+                <div className="text-green-300 ml-4">// Turning resumes & signals into working systems</div>
+                <div className="text-green-300 ml-4">// 95% test coverage, 100% sleep deprived</div>
                 <div className="text-white">{'}'}</div>
               </div>
               <div className="flex space-x-2 mt-6">

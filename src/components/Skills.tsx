@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Monitor, Database, Server, Brain, Code2 } from "lucide-react";
+import { Monitor, Database, Server, Brain } from "lucide-react";
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,47 +9,26 @@ const Skills = () => {
     {
       name: "AI & Machine Learning",
       icon: <Brain className="h-6 w-6" />,
-      skills: [
-        { name: "Python", level: 85 },
-        { name: "scikit-learn", level: 75 },
-        { name: "TensorFlow", level: 70 },
-        { name: "Pandas", level: 80 },
-        { name: "NumPy", level: 80 },
-      ],
+      skills: ["Python", "scikit-learn", "TensorFlow", "PyTorch", "spaCy", "Pandas", "NumPy"],
     },
     {
       name: "Backend",
       icon: <Server className="h-6 w-6" />,
-      skills: [
-        { name: "Python", level: 85 },
-        { name: "Flask/FastAPI", level: 75 },
-        { name: "REST APIs", level: 80 },
-        { name: "Node.js", level: 70 },
-        { name: "Authentication", level: 75 },
-      ],
+      skills: ["Python", "FastAPI", "Flask", "REST APIs", "Node.js", "Pydantic", "Authentication"],
     },
     {
-      name: "Database",
+      name: "Database & Infra",
       icon: <Database className="h-6 w-6" />,
-      skills: [
-        { name: "PostgreSQL", level: 75 },
-        { name: "MongoDB", level: 75 },
-        { name: "SQL", level: 80 },
-        { name: "Redis", level: 65 },
-      ],
+      skills: ["PostgreSQL", "MongoDB", "SQL", "Redis", "Docker", "Supabase"],
     },
     {
-      name: "Frontend & Tools",
+      name: "Frontend & Tooling",
       icon: <Monitor className="h-6 w-6" />,
-      skills: [
-        { name: "React", level: 80 },
-        { name: "TypeScript", level: 75 },
-        { name: "Git", level: 85 },
-        { name: "Docker", level: 70 },
-        { name: "Linux", level: 75 },
-      ],
+      skills: ["React", "TypeScript", "Tailwind CSS", "Git", "GitHub Actions", "Linux"],
     },
   ];
+
+  const alsoUsed = ["Jupyter", "Matplotlib", "OpenAI API", "Firebase", "AWS", "C++", "Swift", "NLP", "Prometheus", "Grafana"];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -86,7 +65,7 @@ const Skills = () => {
             Skills & Technologies
           </h2>
           <p className="text-muted-foreground mt-4">
-            I work with technologies across machine learning, backend development, and data systems.
+            Software engineering covers a lot of ground — mine is machine learning and AI, backed by solid backend and full-stack fundamentals.
           </p>
         </div>
 
@@ -103,23 +82,11 @@ const Skills = () => {
                 </div>
                 <h3 className="text-xl font-serif font-semibold">{category.name}</h3>
               </div>
-              <div className="space-y-4">
-                {category.skills.map((skill, index) => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between mb-1">
-                      <span className="text-sm font-medium">{skill.name}</span>
-                      <span className="text-xs text-muted-foreground">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-muted rounded-full h-2.5">
-                      <div 
-                        className="bg-primary h-2.5 rounded-full transition-all duration-1000 ease-out"
-                        style={{ 
-                          width: isVisible ? `${skill.level}%` : '0%',
-                          transitionDelay: `${0.1 * (index + 1)}s`
-                        }}
-                      ></div>
-                    </div>
-                  </div>
+              <div className="flex flex-wrap">
+                {category.skills.map((skill) => (
+                  <span key={skill} className="skill-pill">
+                    {skill}
+                  </span>
                 ))}
               </div>
             </div>
@@ -127,26 +94,13 @@ const Skills = () => {
         </div>
 
         <div className={`mt-12 bg-card rounded-xl p-6 border border-border ${isVisible ? "animate-fade-in" : "opacity-0"}`} style={{ animationDelay: "0.6s" }}>
-          <h3 className="text-xl font-serif font-semibold mb-4">All Technologies</h3>
+          <h3 className="text-xl font-serif font-semibold mb-4">Also Worked With</h3>
           <div className="flex flex-wrap">
-            {skillCategories.flatMap(category => 
-              category.skills.map(skill => (
-                <span key={skill.name} className="skill-pill">
-                  {skill.name}
-                </span>
-              ))
-            )}
-            <span className="skill-pill">Jupyter</span>
-            <span className="skill-pill">Matplotlib</span>
-            <span className="skill-pill">PyTorch</span>
-            <span className="skill-pill">OpenAI API</span>
-            <span className="skill-pill">RESTful APIs</span>
-            <span className="skill-pill">Firebase</span>
-            <span className="skill-pill">AWS</span>
-            <span className="skill-pill">GitHub Actions</span>
-            <span className="skill-pill">C++</span>
-            <span className="skill-pill">Data Processing</span>
-            <span className="skill-pill">NLP</span>
+            {alsoUsed.map((skill) => (
+              <span key={skill} className="skill-pill">
+                {skill}
+              </span>
+            ))}
           </div>
         </div>
       </div>

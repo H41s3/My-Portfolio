@@ -40,23 +40,23 @@ const About = () => {
             My Journey as a Developer
           </h2>
           <p className="text-muted-foreground mt-4">
-          Software Engineering student at Deakin University focused on machine learning, AI, and backend development with Python. I enjoy solving complex problems and building systems that work behind the scenes.
+          Software Engineering (Honours) student at Deakin University focused on machine learning, AI, and backend development with Python. I enjoy solving complex problems and building systems that work behind the scenes.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div 
+          <div
             className={`space-y-6 ${isVisible ? "animate-slide-in-left" : "opacity-0"}`}
             style={{ animationDelay: "0.2s" }}
           >
             <p className="leading-relaxed">
-              I'm a software engineering student at Deakin University drawn to the world of machine learning, artificial intelligence, and backend systems. My journey started with a fascination for how intelligent systems can solve real-world problems — from automating tasks to making sense of complex data.
+              I'm a software engineering student at Deakin University drawn to machine learning, artificial intelligence, and backend systems. That interest started with a fascination for how intelligent systems solve real-world problems — from automating tasks to making sense of complex data.
             </p>
             <p className="leading-relaxed">
-              I enjoy working with Python to build robust backend solutions and experiment with ML models. While I've built web applications to sharpen my full-stack skills, my real passion lies in what happens behind the scenes — designing APIs, processing data, and creating systems that think.
+              I build with Python to ship robust backend solutions and experiment with ML models, from a production-grade sentiment analysis API to an NLP-powered resume parser. I've also built full-stack web apps to sharpen those skills end to end, but my real interest is what happens behind the scenes — designing APIs, processing data, and building systems that think.
             </p>
             <p className="leading-relaxed">
-              When I'm not coding, you'll find me exploring the latest in AI research, tinkering with personal projects, or watching cat videos — because even future ML engineers need a break.
+              Outside of coding, I keep up with the latest in AI research and tinker with side projects — because even future ML engineers need a break now and then.
             </p>
           </div>
 
