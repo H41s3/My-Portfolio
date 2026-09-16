@@ -42,7 +42,7 @@ const Header = () => {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            Portfolio
+            Emilio Calma
           </a>
 
           {/* Desktop Navigation */}
