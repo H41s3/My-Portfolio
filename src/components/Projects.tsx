@@ -13,6 +13,7 @@ const projects = [
     demoLabel: "API Docs",
     githubLink: "https://github.com/H41s3/sentiment-api",
     featured: true,
+    stat: "358 tests · 95% coverage gate in CI",
     keyFeatures: [
       "Layered production ML-serving API (FastAPI + quantized DistilBERT) with request-scoped async offloading",
       "Strict Pydantic API contracts, opt-in API-key auth, and per-key rate limiting with a Redis-backed distributed counter",
@@ -23,13 +24,32 @@ const projects = [
   },
   {
     id: 2,
+    title: "Smart Resume Parser",
+    description: "A full-stack NLP application that parses PDF/DOCX resumes into structured data, scores them 0–100, and suggests concrete improvements — built with FastAPI, spaCy, and React.",
+    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=1470&auto=format&fit=crop",
+    tags: ["FastAPI", "spaCy", "Python", "React", "Pydantic"],
+    demoLink: "https://github.com/H41s3/Smart-Resume-Parser",
+    demoLabel: "View Code",
+    featured: true,
+    stat: "150+ technical skills auto-detected",
+    keyFeatures: [
+      "NLP pipeline (spaCy) that extracts contact info, skills, work experience, and education from raw resume files",
+      "Detects 150+ technical skills automatically and scores resumes A+ to F with actionable improvement suggestions",
+      "PDF and DOCX support via PyMuPDF and python-docx, with strict Pydantic schemas across the API",
+      "JSON/CSV export endpoints and a React + Vite drag-and-drop upload frontend"
+    ],
+    challenges: "Resumes are unstructured and inconsistently formatted, so the hardest part was building extraction logic robust enough to reliably pull structured fields (dates, titles, skills) out of free-form text without over-fitting to one resume style. I split the pipeline into extraction, parsing, and scoring services so each piece could be tuned and tested independently."
+  },
+  {
+    id: 3,
     title: "p1p — Desktop Companion App",
     description: "A BB-8-style system tray companion that sends gentle wellness nudges throughout the workday — stretch reminders, hydration prompts, and motivational boosts. Packaged for Windows and Mac and published on the Microsoft Store.",
     image: "/p1p.png",
     tags: ["Electron", "JavaScript", "HTML/CSS", "GitHub Actions", "electron-builder"],
-    demoLink: "https://apps.microsoft.com/search?query=p1p",
+    demoLink: "https://apps.microsoft.com/detail/9n0p6d5ljnnv?ocid=webpdpshare",
     demoLabel: "Microsoft Store",
     featured: true,
+    stat: "Published on the Microsoft Store · Windows & Mac",
     keyFeatures: [
       "BB-8-style system tray companion with stretch, hydration, and motivational wellness nudges",
       "Packaged for Windows and Mac using electron-builder",
@@ -39,7 +59,7 @@ const projects = [
     challenges: "Shipping a personal tray app to the Microsoft Store meant treating packaging and release as first-class work. I automated Windows and Mac builds with electron-builder and GitHub Actions so store submissions stayed repeatable instead of being a one-off local process."
   },
   {
-    id: 3,
+    id: 4,
     title: "Lvo — Emotional Clarity AI",
     description: "A personal AI companion built with React, Vite, and Tailwind CSS, using the OpenAI API to help users work through feelings with clearer, more grounded conversations.",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1470&auto=format&fit=crop",
@@ -56,41 +76,25 @@ const projects = [
     challenges: "The main challenge was shaping an AI experience that felt personal and emotionally useful without becoming noisy or generic. I focused the prompt design and interface on short, clear conversations so the product stayed approachable while still using a capable model."
   },
   {
-    id: 4,
-    title: "Pet Adoption Front-End",
-    description: "A modern pet adoption platform connecting loving homes with pets in need. Features a beautiful UI",
-    image: "/pets.png",
-    tags: ["React", "TypeScript", "Tailwind CSS"],
-    demoLink: "https://p3tpals.netlify.app",
-    githubLink: "https://github.com/H41s3/Pet-Pals.git",
-    featured: false,
-    keyFeatures: [
-      "Responsive design with optimal user experience on all devices",
-      "Intuitive and accessible interface with smooth animations",
-      "Clean, scalable component structure using React and TypeScript"
-    ],
-    challenges: "During development, a key challenge was ensuring consistent responsiveness and accessibility across a range of devices and screen sizes while maintaining a clean and visually appealing interface. I addressed this by implementing a mobile-first design approach, utilizing Tailwind CSS’s utility classes effectively, and refining animations to balance smoothness and performance. Additionally, I optimized the component structure to improve maintainability and scalability for future feature additions."
-  },
-  {
     id: 5,
-    title: "Recipe App (Cuisinefy)",
-    description: "A responsive recipe management application built with React and styled using Tailwind CSS. Cuisinefy allows users to browse, search, and save their favorite recipes through an intuitive, modern interface. The app integrates the Edamam API to fetch real-time recipe data based on user input.",
-    image: "/cuisinefy.png",
-    tags: ["React", "Tailwind CSS", "API"],
-    demoLink: "https://cu1sinefy.netlify.app/",
-    githubLink: "https://github.com/H41s3/cuisinefyy.git",
-    featured: false,
+    title: "Health Tracker",
+    description: "A full-stack health tracking app covering daily metrics, cycle tracking, custom trackers, and a health journal — with charts, reminders, and Supabase-backed auth.",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1470&auto=format&fit=crop",
+    tags: ["React", "TypeScript", "Supabase", "Zustand", "Recharts"],
+    demoLink: "https://he3lthflow.netlify.app",
+    githubLink: "https://github.com/H41s3/Health-Tracker",
+    featured: true,
     keyFeatures: [
-      "Dynamic recipe search with multiple filters",
-      "Personalized recipe recommendations",
-      "Ingredient-based recipe suggestions",
-      "Nutrition information display"
+      "Health dashboard tracking activity, sleep, hydration, weight, mood, and calories with trend charts",
+      "Cycle tracker with flow/symptom logging and predictions, plus unlimited user-defined custom metrics",
+      "Supabase (PostgreSQL) backend with Row Level Security and email/password authentication",
+      "Type-safe React 18 + TypeScript frontend with Zustand state management and Recharts visualizations"
     ],
-    challenges: "The main challenge was optimizing API calls to the Edamam service while providing a seamless user experience. I implemented debouncing for search queries and local storage caching to reduce API usage and improve response times."
+    challenges: "The app covers several distinct feature areas (dashboard, cycle tracking, journal, reminders, custom metrics) that all need to share state and stay in sync without turning into a tangle of prop-drilling. I used Zustand for centralized state and Supabase's Row Level Security to keep per-user data properly isolated at the database layer instead of only in the frontend."
   }
 ];
 
-const INITIAL_VISIBLE_COUNT = 1;
+const INITIAL_VISIBLE_COUNT = 3;
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -139,15 +143,13 @@ const Projects = () => {
             Featured Projects
           </h2>
           <p className="text-muted-foreground mt-4">
-            A showcase of my best work, highlighting my technical skills and problem-solving abilities.
+            Shipped, working software — from a production ML API to apps live on the Microsoft Store and the web.
           </p>
         </div>
 
         <div
           id="more-projects"
-          className={showAllProjects
-            ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            : "grid grid-cols-1 max-w-md mx-auto gap-8"}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {visibleProjects.map((project, index) => (
             <button 
@@ -173,6 +175,9 @@ const Projects = () => {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-serif font-semibold mb-2">{project.title}</h3>
+                {project.stat && (
+                  <p className="text-xs font-medium text-primary mb-2">{project.stat}</p>
+                )}
                 <p className="text-muted-foreground text-sm mb-4">
                   {project.description}
                 </p>
