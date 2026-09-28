@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://h4iseportfolio.netlify.app/sitemap.xml
