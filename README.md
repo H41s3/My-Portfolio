@@ -1,71 +1,37 @@
-# Portfolio Website
+# Emilio Calma — Portfolio
 
-A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS.
+Personal portfolio site for Emilio Joseph Calma — software engineering student focused on machine learning, AI, and backend development. Live at [h4iseportfolio.netlify.app](https://h4iseportfolio.netlify.app).
 
-## Features
+## Stack
 
-- 🌓 Dark/Light mode support
-- 📱 Fully responsive design
-- ⚡ Built with Vite for fast development
-- 🎨 Modern UI components with Shadcn
-- 🎯 Smooth scrolling navigation
-- 📝 Sections for About, Projects, Skills, Resume, and Contact
+React, TypeScript, Tailwind CSS, shadcn/ui, Vite.
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js (v16 or higher)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone <your-repo-url>
-cd myPortfolio
-```
-
-2. Install dependencies:
 ```bash
 npm install
-```
-
-3. Start the development server:
-```bash
 npm run dev
 ```
 
-4. Open [http://localhost:8080](http://localhost:8080) in your browser.
+Open [http://localhost:8080](http://localhost:8080) in your browser.
 
-## Available Scripts
+## Scripts
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
 - `npm run lint` - Run ESLint
 
-## Project Structure
+## Structure
 
 ```
 src/
-├── components/     # Reusable UI components
-├── pages/         # Page components
-├── hooks/         # Custom React hooks
-├── lib/           # Utility functions
-└── styles/        # Global styles
+├── components/     # Page sections (Hero, About, Projects, Skills, Resume, Contact) and shared UI
+├── pages/          # Route-level components
+├── hooks/          # Custom React hooks
+└── lib/            # Utility functions
 ```
 
-## Technologies Used
+## Deployment
 
-- React
-- TypeScript
-- Tailwind CSS
-- Vite
-- Shadcn UI
-- React Router
-- React Query
-
-## License
-
-MIT
+Auto-deploys to Netlify on every push to `main`.
