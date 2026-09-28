@@ -66,11 +66,10 @@ const Resume = () => {
 
   return (
     <section id="resume" className="section bg-muted/30 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_14px]"></div>
       <div className="container mx-auto relative z-10">
         <div className={`max-w-3xl mx-auto text-center mb-16 ${isVisible ? "animate-fade-in" : "opacity-0"}`}>
-          <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-            My Qualifications
-          </span>
+          <span className="section-label">// resume</span>
           <h2 className="section-title text-center mx-auto after:left-1/2 after:-translate-x-1/2">
             Resume
           </h2>
@@ -109,50 +108,20 @@ const Resume = () => {
                     <h4 className="text-lg font-serif font-semibold">{job.title}</h4>
                     <p className="text-primary text-sm mb-2">{job.company}</p>
                     <p className="text-muted-foreground text-xs mb-3">{job.duration}</p>
-                    <ul className="list-disc pl-4 text-sm space-y-1">
+                    <ul className="text-sm space-y-1.5">
                       {job.bullets.map((bullet, i) => (
-                        <li key={i}>{bullet}</li>
+                        <li key={i} className="flex gap-2">
+                          <span className="font-mono text-primary shrink-0">›</span>
+                          <span>{bullet}</span>
+                        </li>
                       ))}
                     </ul>
                   </div>
                 </div>
               ))}
             </div>
-            
-            <div className="mt-12 bg-card p-6 rounded-xl border border-border">
-              <h4 className="text-lg font-serif font-semibold mb-4">Key Skills I'm Developing</h4>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <div className="p-1 rounded-full bg-primary/10 mr-3 mt-0.5 text-primary">
-                    <FileText className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <p className="font-medium">Web Development</p>
-                    <p className="text-xs text-muted-foreground">React, TypeScript, Tailwind CSS</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="p-1 rounded-full bg-primary/10 mr-3 mt-0.5 text-primary">
-                    <FileText className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <p className="font-medium">Artificial Intelligence</p>
-                    <p className="text-xs text-muted-foreground">Machine Learning and Deep Learning</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="p-1 rounded-full bg-primary/10 mr-3 mt-0.5 text-primary">
-                    <FileText className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <p className="font-medium">Problem Solving</p>
-                    <p className="text-xs text-muted-foreground">Algorithmic Thinking, Debugging</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
           </div>
-          
+
           <div className={isVisible ? "animate-slide-in-right" : "opacity-0"} style={{ animationDelay: "0.4s" }}>
             <div className="flex items-center mb-8">
               <div className="p-2 rounded-lg bg-primary/10 mr-4 text-primary">

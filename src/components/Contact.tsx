@@ -72,9 +72,7 @@ const Contact = () => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_14px]"></div>
       <div className="container mx-auto relative z-10">
         <div className={`max-w-3xl mx-auto text-center mb-16 ${isVisible ? "animate-fade-in" : "opacity-0"}`}>
-          <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-            Get In Touch
-          </span>
+          <span className="section-label">// contact</span>
           <h2 className="section-title text-center mx-auto after:left-1/2 after:-translate-x-1/2">
             Contact Me
           </h2>

@@ -24,24 +24,6 @@ const projects = [
   },
   {
     id: 2,
-    title: "Smart Resume Parser",
-    description: "A full-stack NLP application that parses PDF/DOCX resumes into structured data, scores them 0–100, and suggests concrete improvements — built with FastAPI, spaCy, and React.",
-    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=1470&auto=format&fit=crop",
-    tags: ["FastAPI", "spaCy", "Python", "React", "Pydantic"],
-    demoLink: "https://github.com/H41s3/Smart-Resume-Parser",
-    demoLabel: "View Code",
-    featured: true,
-    stat: "150+ technical skills auto-detected",
-    keyFeatures: [
-      "NLP pipeline (spaCy) that extracts contact info, skills, work experience, and education from raw resume files",
-      "Detects 150+ technical skills automatically and scores resumes A+ to F with actionable improvement suggestions",
-      "PDF and DOCX support via PyMuPDF and python-docx, with strict Pydantic schemas across the API",
-      "JSON/CSV export endpoints and a React + Vite drag-and-drop upload frontend"
-    ],
-    challenges: "Resumes are unstructured and inconsistently formatted, so the hardest part was building extraction logic robust enough to reliably pull structured fields (dates, titles, skills) out of free-form text without over-fitting to one resume style. I split the pipeline into extraction, parsing, and scoring services so each piece could be tuned and tested independently."
-  },
-  {
-    id: 3,
     title: "p1p — Desktop Companion App",
     description: "A BB-8-style system tray companion that sends gentle wellness nudges throughout the workday — stretch reminders, hydration prompts, and motivational boosts. Packaged for Windows and Mac and published on the Microsoft Store.",
     image: "/p1p.png",
@@ -59,24 +41,25 @@ const projects = [
     challenges: "Shipping a personal tray app to the Microsoft Store meant treating packaging and release as first-class work. I automated Windows and Mac builds with electron-builder and GitHub Actions so store submissions stayed repeatable instead of being a one-off local process."
   },
   {
-    id: 4,
-    title: "Lvo — Emotional Clarity AI",
-    description: "A personal AI companion built with React, Vite, and Tailwind CSS, using the OpenAI API to help users work through feelings with clearer, more grounded conversations.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1470&auto=format&fit=crop",
-    tags: ["React", "Vite", "Tailwind CSS", "OpenAI API"],
-    demoLink: "https://lyai.netlify.app",
-    githubLink: "https://github.com/H41s3/LYO",
+    id: 3,
+    title: "Smart Resume Parser",
+    description: "A full-stack NLP application that parses PDF/DOCX resumes into structured data, scores them 0–100, and suggests concrete improvements — built with FastAPI, spaCy, and React.",
+    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=1470&auto=format&fit=crop",
+    tags: ["FastAPI", "spaCy", "Python", "React", "Pydantic"],
+    demoLink: "https://github.com/H41s3/Smart-Resume-Parser",
+    demoLabel: "View Code",
     featured: true,
+    stat: "150+ technical skills auto-detected",
     keyFeatures: [
-      "Conversational UI focused on emotional clarity rather than generic chatbot replies",
-      "React + Vite frontend styled with Tailwind CSS",
-      "OpenAI API integration for contextual, supportive responses",
-      "Deployed live on Netlify for easy sharing and iteration"
+      "NLP pipeline (spaCy) that extracts contact info, skills, work experience, and education from raw resume files",
+      "Detects 150+ technical skills automatically and scores resumes A+ to F with actionable improvement suggestions",
+      "PDF and DOCX support via PyMuPDF and python-docx, with strict Pydantic schemas across the API",
+      "JSON/CSV export endpoints and a React + Vite drag-and-drop upload frontend"
     ],
-    challenges: "The main challenge was shaping an AI experience that felt personal and emotionally useful without becoming noisy or generic. I focused the prompt design and interface on short, clear conversations so the product stayed approachable while still using a capable model."
+    challenges: "Resumes are unstructured and inconsistently formatted, so the hardest part was building extraction logic robust enough to reliably pull structured fields (dates, titles, skills) out of free-form text without over-fitting to one resume style. I split the pipeline into extraction, parsing, and scoring services so each piece could be tuned and tested independently."
   },
   {
-    id: 5,
+    id: 4,
     title: "Health Tracker",
     description: "A full-stack health tracking app covering daily metrics, cycle tracking, custom trackers, and a health journal — with charts, reminders, and Supabase-backed auth.",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1470&auto=format&fit=crop",
@@ -134,11 +117,10 @@ const Projects = () => {
 
   return (
     <section id="projects" className="section bg-muted/30 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_14px]"></div>
       <div className="container mx-auto relative z-10">
         <div className={`max-w-3xl mx-auto text-center mb-16 ${isVisible ? "animate-fade-in" : "opacity-0"}`}>
-          <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-            My Work
-          </span>
+          <span className="section-label">// projects</span>
           <h2 className="section-title text-center mx-auto after:left-1/2 after:-translate-x-1/2">
             Featured Projects
           </h2>
@@ -308,9 +290,12 @@ const Projects = () => {
                     
                     <div className="mb-6">
                       <h4 className="text-sm font-medium mb-2">Key Features</h4>
-                      <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
+                      <ul className="text-sm text-muted-foreground space-y-1.5">
                         {selectedProject.keyFeatures.map((feature, index) => (
-                          <li key={index}>{feature}</li>
+                          <li key={index} className="flex gap-2">
+                            <span className="font-mono text-primary shrink-0">›</span>
+                            <span>{feature}</span>
+                          </li>
                         ))}
                       </ul>
                     </div>

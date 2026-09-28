@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Award, BookOpen, Code, Brain } from "lucide-react";
+import { Terminal, Smartphone, GraduationCap } from "lucide-react";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,9 +33,7 @@ const About = () => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_14px]"></div>
       <div className="container mx-auto relative z-10">
         <div className={`max-w-3xl mx-auto text-center mb-16 ${isVisible ? "animate-fade-in" : "opacity-0"}`}>
-          <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-            About Me
-          </span>
+          <span className="section-label">// about</span>
           <h2 className="section-title text-center mx-auto after:left-1/2 after:-translate-x-1/2">
             My Journey as a Developer
           </h2>
@@ -60,40 +58,43 @@ const About = () => {
             </p>
           </div>
 
-          <div 
-            className={`grid grid-cols-2 gap-6 ${isVisible ? "animate-slide-in-right" : "opacity-0"}`}
+          <div
+            className={isVisible ? "animate-slide-in-right" : "opacity-0"}
             style={{ animationDelay: "0.4s" }}
           >
-            <div className="p-6 rounded-xl bg-muted/50 border border-border hover:shadow-md hover:border-primary/20 transition-all duration-300">
-              <Code className="h-8 w-8 text-primary mb-4" />
-              <h3 className="text-lg font-medium mb-2">Clean Code</h3>
-              <p className="text-sm text-muted-foreground">
-                I write maintainable, well-documented code following best practices.
+            <div className="rounded-xl border border-border bg-card p-6">
+              <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-5">
+                Currently
               </p>
-            </div>
-            
-            <div className="p-6 rounded-xl bg-muted/50 border border-border hover:shadow-md hover:border-primary/20 transition-all duration-300">
-              <Brain className="h-8 w-8 text-primary mb-4" />
-              <h3 className="text-lg font-medium mb-2">AI & ML Focus</h3>
-              <p className="text-sm text-muted-foreground">
-                I build intelligent systems that learn and adapt.
-              </p>
-            </div>
-            
-            <div className="p-6 rounded-xl bg-muted/50 border border-border hover:shadow-md hover:border-primary/20 transition-all duration-300">
-              <BookOpen className="h-8 w-8 text-primary mb-4" />
-              <h3 className="text-lg font-medium mb-2">Always Learning</h3>
-              <p className="text-sm text-muted-foreground">
-                I continuously expand my knowledge and skills.
-              </p>
-            </div>
-            
-            <div className="p-6 rounded-xl bg-muted/50 border border-border hover:shadow-md hover:border-primary/20 transition-all duration-300">
-              <Award className="h-8 w-8 text-primary mb-4" />
-              <h3 className="text-lg font-medium mb-2">Quality First</h3>
-              <p className="text-sm text-muted-foreground">
-                I deliver high-quality solutions that stand the test of time.
-              </p>
+              <ul className="space-y-5">
+                <li className="flex items-start">
+                  <div className="p-2 rounded-lg bg-primary/10 mr-4 text-primary shrink-0">
+                    <Terminal className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="font-medium">Shipping ML & backend systems</p>
+                    <p className="text-sm text-muted-foreground">A production sentiment analysis API and an NLP-powered resume parser</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <div className="p-2 rounded-lg bg-primary/10 mr-4 text-primary shrink-0">
+                    <Smartphone className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="font-medium">Learning iOS development</p>
+                    <p className="text-sm text-muted-foreground">Building a SwiftUI app, still in progress</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <div className="p-2 rounded-lg bg-primary/10 mr-4 text-primary shrink-0">
+                    <GraduationCap className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="font-medium">Finishing my degree</p>
+                    <p className="text-sm text-muted-foreground">Bachelor of Software Engineering (Honours) at Deakin University</p>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

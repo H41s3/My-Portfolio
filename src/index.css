@@ -116,6 +116,10 @@
   .section-title {
     @apply text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6 relative;
   }
+
+  .section-label {
+    @apply block font-mono text-sm text-primary mb-4;
+  }
   
   .section-title::after {
     content: "";
