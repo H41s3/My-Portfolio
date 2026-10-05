@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Send, Mail, MapPin } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
-const CONTACT_EMAIL = "calmaemilio803@gmail.com";
+const CONTACT_EMAIL = "calmaemiliojoseph13.8@gmail.com";
 
 const Contact = () => {
   const { toast } = useToast();
